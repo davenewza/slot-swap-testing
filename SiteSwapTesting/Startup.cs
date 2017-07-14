@@ -15,16 +15,13 @@ namespace SiteSwapTesting
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync($"<b>Current Process</b><br/>Process Name: {Process.GetCurrentProcess().ProcessName}<br/>Process ID: {Process.GetCurrentProcess().Id}<br/>Started: {Process.GetCurrentProcess().StartTime}");
+                await context.Response.WriteAsync($"" +
+                    $"<b>Current Process</b><br/>" +
+                    $"Process Name: {Process.GetCurrentProcess().ProcessName}<br/>" +
+                    $"Process ID: {Process.GetCurrentProcess().Id}<br/>" +
+                    $"Started: {Process.GetCurrentProcess().StartTime}");
             });
         }
     }
